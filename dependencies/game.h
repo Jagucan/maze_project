@@ -38,7 +38,7 @@ private:
 
 	float **renderData, **spriteMap;
 
-	float camx, camy, cama, camf, bright;
+	float camX, camY, cama, camf, bright;
 
 public:
 
@@ -83,9 +83,9 @@ public:
 		scolkeyg = sScolkeyg;
 		scolkeyb = sScolkeyb;
 	}
-	void setCam(float sCamx, float sCamy, float sCama, float sCamf) {
-		camx = sCamx;
-		camy = sCamy;
+	void setCam(float scamX, float scamY, float sCama, float sCamf) {
+		camX = scamX;
+		camY = scamY;
 		cama = sCama;
 		camf = sCamf;
 		while (cama > 3.14) cama -= 6.28;
@@ -161,62 +161,62 @@ public:
 			// Bresenham's algorithm
 			// and yes, you can unite it, but then this mf will be slower
 			if (sin) { // y iteration
-				ydel = camy - (int)camy;
+				ydel = camY - (int)camY;
 				yy = 0;
 				if (ydir) // down
 					while (!yobj) {
 						yy += 1;
 						yfar = (yy - ydel) / sin;
-						yx = camx + yfar * cos;
-						if (yy + camy >= levelh || yy + camy < 0 || yx >= levelw || yx < 0)
+						yx = camX + yfar * cos;
+						if (yy + camY >= levelh || yy + camY < 0 || yx >= levelw || yx < 0)
 						{
 							yfar = 100.0;
 							break;
 						}
-						yobj = level[(int)(yy + camy) * levelw + yx];
+						yobj = level[(int)(yy + camY) * levelw + yx];
 					}
 				else // up
 					while (!yobj) {
 						yfar = (yy - ydel) / sin;
 						yy -= 1;
-						yx = camx + yfar * cos;
-						if (yy + camy >= levelh || yy + camy < 0 || yx >= levelw || yx < 0)
+						yx = camX + yfar * cos;
+						if (yy + camY >= levelh || yy + camY < 0 || yx >= levelw || yx < 0)
 						{
 							yfar = 100.0;
 							break;
 						}
-						yobj = level[(int)(yy + camy) * levelw + yx];
+						yobj = level[(int)(yy + camY) * levelw + yx];
 					}
 			}
 			else
 				yfar = 100.0;
 
 			if (cos) { // x iteration
-				xdel = camx - (int)camx;
+				xdel = camX - (int)camX;
 				xx = 0;
 				if (xdir) // right
 					while (!xobj) {
 						xx += 1;
 						xfar = (xx - xdel) / cos;
-						xy = camy + xfar * sin;
-						if (xx + camx >= levelw || xx + camx < 0 || xy >= levelh || xy < 0)
+						xy = camY + xfar * sin;
+						if (xx + camX >= levelw || xx + camX < 0 || xy >= levelh || xy < 0)
 						{
 							xfar = 100.0;
 							break;
 						}
-						xobj = level[xy * levelw + (int)(xx + camx)];
+						xobj = level[xy * levelw + (int)(xx + camX)];
 					}
 				else // left
 					while (!xobj) {
 						xfar = (xx - xdel) / cos;
 						xx -= 1;
-						xy = camy + xfar * sin;
-						if (xx + camx >= levelw || xx + camx < 0 || xy >= levelh || xy < 0)
+						xy = camY + xfar * sin;
+						if (xx + camX >= levelw || xx + camX < 0 || xy >= levelh || xy < 0)
 						{
 							xfar = 100.0;
 							break;
 						}
-						xobj = level[xy * levelw + (int)(xx + camx)];
+						xobj = level[xy * levelw + (int)(xx + camX)];
 					}
 			}
 			else
@@ -228,24 +228,24 @@ public:
 				obj = xobj;
 				far = xfar;
 				if (xx > 0) {
-					cut = camy + sin * far - xy;
-					bright = light_level[(int)camx + xx + levelw * (int)xy - 1];
+					cut = camY + sin * far - xy;
+					bright = light_level[(int)camX + xx + levelw * (int)xy - 1];
 				}
 				else {
-					cut = 1 - camy - sin * far + xy;
-					bright = light_level[(int)camx + xx + levelw * (int)xy + 1];
+					cut = 1 - camY - sin * far + xy;
+					bright = light_level[(int)camX + xx + levelw * (int)xy + 1];
 				}
 			}
 			else { // the iteration over y is the nearest
 				obj = yobj;
 				far = yfar;
 				if (yy < 0) {
-					cut = camx + cos * far - yx;
-					bright = light_level[levelw * (int)camy + (int)yx + levelw * yy + levelw];
+					cut = camX + cos * far - yx;
+					bright = light_level[levelw * (int)camY + (int)yx + levelw * yy + levelw];
 				}
 				else {
-					cut = 1 - camx - cos * far + yx;
-					bright = light_level[levelw * (int)camy + (int)yx + levelw * yy - levelw];
+					cut = 1 - camX - cos * far + yx;
+					bright = light_level[levelw * (int)camY + (int)yx + levelw * yy - levelw];
 				}
 			}
 
@@ -276,8 +276,8 @@ public:
 			x = spriteMap[i][1];
 			y = spriteMap[i][2];
 
-			sfar = sqrtf(powf(camx - x, 2) + powf(camy - y, 2));
-			sdir = atan2f(y - camy, x - camx);
+			sfar = sqrtf(powf(camX - x, 2) + powf(camY - y, 2));
+			sdir = atan2f(y - camY, x - camX);
 
 			if (sdir - angle > 3.14) sdir -= 6.28;
 			if (sdir - angle < -3.14) sdir += 6.28;
@@ -323,8 +323,8 @@ public:
 				for (int x = 0; x < width; x++) {
 
 					_fs = (camf / width) * (x - width / 2);
-					_sax = camx + 1.f / y * (halfHeight * cosf(cama + _fs)) / cosf(_fs);
-					_say = camy + 1.f / y * (halfHeight * sinf(cama + _fs)) / cosf(_fs);
+					_sax = camX + 1.f / y * (halfHeight * cosf(cama + _fs)) / cosf(_fs);
+					_say = camY + 1.f / y * (halfHeight * sinf(cama + _fs)) / cosf(_fs);
 
 					if (_say < levelh && _say > 0 && _sax < levelw && _sax > 0) {
 						int ind = (int)_say * levelw + (int)_sax;
