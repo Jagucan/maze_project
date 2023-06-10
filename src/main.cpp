@@ -10,23 +10,21 @@
 
 int main(int argc, char *args[]) {
 
-	float px = 1.5, py = 8.5, pa = 0.0, pf = 1.0;
-	float speed = 0.05;
+	float planeX = 1.5, planeY = 8.5, dirX = 0.0, dirY = 1.0;
 	bool run = true;
-	int stt, ett = 0, dtt = 0, ctt;
-	const Uint8* keys;
-	int mousex, mousey;
-	float xm, ym;
+	int time, oldTime = 0, frameTime = 0;
+	int mouseX, mouseY;
+	float posX, posY;
 
 	ASSERT(!SDL_Init(SDL_INIT_VIDEO),
-		   "SDL failed to initialize; %s\n",
-		   SDL_GetError());
+			"SDL failed to initialize; %s\n",
+			SDL_GetError());
 
-	// create window
+	/* create window */
 	SDL_Window *window = SDL_CreateWindow("Game Maze", 100, 100, width, height, SDL_WINDOW_SHOWN|SDL_WINDOW_FULLSCREEN);
 	ASSERT(window, "failed to create window\n", SDL_GetError());
 
-	//create renderer window
+	/* create renderer window */
 	SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, 0);
 	ASSERT(renderer, "failed to create renderer\n", SDL_GetError());
 
@@ -39,7 +37,7 @@ int main(int argc, char *args[]) {
 	maze.setSky("pics/sky.bmp");
 	maze.setFlats(map_floor, map_ciel);
 	maze.setLights(map_light);
-	maze.setCam(px, py, pa, pf);
+	maze.setCam(planeX, planeY, dirX, dirY);
 	maze.init(window);
 
 	SDL_Event event;
@@ -48,73 +46,75 @@ int main(int argc, char *args[]) {
 	while (run) {
 
 		maze.show();
-		dtt = 0;
+		frameTime = 0;
 
-		while (dtt < 1) {
-			stt = SDL_GetTicks();
-			dtt += stt - ett;
-			ett = stt;
+		/* timing for input and FPS counter */
+		while (frameTime < 1) {
+			time = SDL_GetTicks();
+			frameTime += time - oldTime;
+			oldTime = time;
 		}
 
-		ctt = 0;
-		dtt = 1000 / dtt;
-		xm = 0;
-		ym = 0;
-		keys = SDL_GetKeyboardState(NULL);
+		float moveSpeed = 0.05;
+		/* frametime is the time this frame has taken, in seconds */
+		frameTime = 1000 / frameTime;
+		posX = 0;
+		posY = 0;
+		const Uint8* keys = SDL_GetKeyboardState(NULL);
 
-		// move forward
+		/* move forward */
 		if (keys[SDL_SCANCODE_W]) {
-			xm += speed * cosf(pa) * 60.f / dtt;
-			ym += speed * sinf(pa) * 60.f / dtt;
+			posX += moveSpeed * cosf(dirX) * 60.f / frameTime;
+			posY += moveSpeed * sinf(dirX) * 60.f / frameTime;
 		}
 
-		// move left
+		/* move left */
 		if (keys[SDL_SCANCODE_A]) {
-			xm += speed * cosf(pa - 1.57) * 60.f / dtt;
-			ym += speed * sinf(pa - 1.57) * 60.f / dtt;
+			posX += moveSpeed * cosf(dirX - 1.57) * 60.f / frameTime;
+			posY += moveSpeed * sinf(dirX - 1.57) * 60.f / frameTime;
 		}
 
-		// move right
+		/* move right */
 		if (keys[SDL_SCANCODE_D]) {
-			xm += speed * cosf(pa + 1.57) * 60.f / dtt;
-			ym += speed * sinf(pa + 1.57) * 60.f / dtt;
+			posX += moveSpeed * cosf(dirX + 1.57) * 60.f / frameTime;
+			posY += moveSpeed * sinf(dirX + 1.57) * 60.f / frameTime;
 		}
 
-		// move back
+		/* move back */
 		if (keys[SDL_SCANCODE_S]) {
-			xm -= speed * cosf(pa) * 60.f / dtt;
-			ym -= speed * sinf(pa) * 60.f / dtt;
+			posX -= moveSpeed * cosf(dirX) * 60.f / frameTime;
+			posY -= moveSpeed * sinf(dirX) * 60.f / frameTime;
 		}
 
-		if (!map[(int)(py + ym + .3) * mapWidth + (int)(px + xm + .3)] &&
-			!map[(int)(py + ym - .3) * mapWidth + (int)(px + xm + .3)] &&
-			!map[(int)(py + ym + .3) * mapWidth + (int)(px + xm - .3)] &&
-			!map[(int)(py + ym - .3) * mapWidth + (int)(px + xm - .3)]) {
-			px += xm;
-			py += ym;
+		if (!map[(int)(planeY + posY + .3) * mapWidth + (int)(planeX + posX + .3)] &&
+			!map[(int)(planeY + posY - .3) * mapWidth + (int)(planeX + posX + .3)] &&
+			!map[(int)(planeY + posY + .3) * mapWidth + (int)(planeX + posX - .3)] &&
+			!map[(int)(planeY + posY - .3) * mapWidth + (int)(planeX + posX - .3)]) {
+			planeX += posX;
+			planeY += posY;
 		}
 
-		if (!map[(int)(py + ym + .3) * mapWidth + (int)(px + .3)] &&
-			!map[(int)(py + ym - .3) * mapWidth + (int)(px + .3)] &&
-			!map[(int)(py + ym + .3) * mapWidth + (int)(px - .3)] &&
-			!map[(int)(py + ym - .3) * mapWidth + (int)(px - .3)]) {
-			py += ym;
+		if (!map[(int)(planeY + posY + .3) * mapWidth + (int)(planeX + .3)] &&
+			!map[(int)(planeY + posY - .3) * mapWidth + (int)(planeX + .3)] &&
+			!map[(int)(planeY + posY + .3) * mapWidth + (int)(planeX - .3)] &&
+			!map[(int)(planeY + posY - .3) * mapWidth + (int)(planeX - .3)]) {
+			planeY += posY;
 		}
 
-		if (!map[(int)(py + .3) * mapWidth + (int)(px + xm + .3)] &&
-			!map[(int)(py - .3) * mapWidth + (int)(px + xm + .3)] &&
-			!map[(int)(py + .3) * mapWidth + (int)(px + xm - .3)] &&
-			!map[(int)(py - .3) * mapWidth + (int)(px + xm - .3)]) {
-			px += xm;
+		if (!map[(int)(planeY + .3) * mapWidth + (int)(planeX + posX + .3)] &&
+			!map[(int)(planeY - .3) * mapWidth + (int)(planeX + posX + .3)] &&
+			!map[(int)(planeY + .3) * mapWidth + (int)(planeX + posX - .3)] &&
+			!map[(int)(planeY - .3) * mapWidth + (int)(planeX + posX - .3)]) {
+			planeX += posX;
 		}
 
-		// turn the camera to left
+		/* turn the camera to left */
 		if (keys[SDL_SCANCODE_LEFT])
-			pa -= speed * 60.f / dtt / 2;
+			dirX -= moveSpeed * 60.f / frameTime / 2;
 
-		// turn the camera to right
+		/* turn the camera to right */
 		if (keys[SDL_SCANCODE_RIGHT])
-			pa += speed * 60.f / dtt / 2;
+			dirX += moveSpeed * 60.f / frameTime / 2;
 
 		while (SDL_PollEvent(&event)) {
 
@@ -128,25 +128,26 @@ int main(int argc, char *args[]) {
 
 		}
 
-		SDL_GetMouseState(&mousex, &mousey);
+		/* Retrieve the current state of the mouse. */
+		SDL_GetMouseState(&mouseX, &mouseY);
 
-		// mouse rotation velocity
-		pa += (mousex - width / 2) * 0.0001;
+		/* mouse rotation velocity */
+		dirX += (mouseX - width / 2) * 0.00070;
 
-		//
+		/* Move the mouse to the given position in global screen space. */
 		SDL_WarpMouseGlobal(width / 2, height / 2);
 
-		//
+		/* Updates the screen with any rendering made in a previous call. */
 		SDL_RenderPresent(renderer);
 
-		//
-		maze.setCam(px, py, pa, pf);
+		/* */
+		maze.setCam(planeX, planeY, dirX, dirY);
 	}
 
-	// destroy renderer
+	/* Destroy the rendering context for a window and free associated textures. */
 	SDL_DestroyRenderer(renderer);
 
-	// destroy window
+	/* Destroy a window. */
 	SDL_DestroyWindow(window);
 
 	return 0;
