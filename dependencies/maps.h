@@ -3,13 +3,13 @@
 
 
 /* maps dimensions */
-#define mapWidth 11
-#define mapHeight 11
+#define MAPWIDTH 11
+#define MAPHEIGHT 11
 
 /* ---------------------------------------------------------------- */
 
 /* add walls or columns on the map */
-int map[mapWidth * mapHeight] = {
+int map[MAPWIDTH * MAPHEIGHT] = {
 	4, 4, 4, 4, 4, 5, 4, 4, 4, 4, 4,
 	4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4,
 	4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4,
@@ -24,7 +24,7 @@ int map[mapWidth * mapHeight] = {
 };
 
 /* add textures to change the floor design. */
-int map_floor[mapWidth * mapHeight] = {
+int map_floor[MAPWIDTH * MAPHEIGHT] = {
 	3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3,
 	3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3,
 	3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3,
@@ -39,7 +39,7 @@ int map_floor[mapWidth * mapHeight] = {
 };
 
 /* add textures to simulate the roof */
-int map_ciel[mapWidth * mapHeight] = {
+int map_ciel[MAPWIDTH * MAPHEIGHT] = {
 	0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0,
 	0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 0,
 	0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 0,
@@ -54,7 +54,7 @@ int map_ciel[mapWidth * mapHeight] = {
 };
 
 /* lights or shadows on the map */
-float map_light[mapWidth * mapHeight] = {
+float map_light[MAPWIDTH * MAPHEIGHT] = {
 	.1, .1, .1, .1, .1, .1, .1, .1, .1, .1, .1,
 	.1, .1, .1, .1, .1, .1, .1, .1, .1, .1, .1,
 	.1, .1, .2, .2, .3, .4, .3, .2, .2, .1, .1,

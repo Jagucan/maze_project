@@ -31,11 +31,11 @@ int main(int argc, char *args[])
 
 	Game maze;
 	maze.setRenderer(renderer, width, height);
-	maze.setTileWalls("pics/walls.bmp", 32, 32);
-	maze.setTileObjs("pics/objs.bmp", 64, 64, 160, 0, 128);
-	maze.setMap(map, mapWidth, mapHeight);
+	maze.setMapWalls("pics/walls.bmp", 32, 32);
+	maze.setMapObjs("pics/objs.bmp", 64, 64, 160, 0, 128);
+	maze.setMap(map, MAPWIDTH, MAPHEIGHT);
 	maze.setMapObjs(map_objs, 3);
-	maze.setSky("pics/sky_pingoo.bmp");
+	maze.setCiel("pics/sky_pingoo.bmp");
 	maze.setFlats(map_floor, map_ciel);
 	maze.setLights(map_light);
 	maze.setCam(plaX, plaY, dirX, dirY);
@@ -94,27 +94,27 @@ int main(int argc, char *args[])
 		}
 
 		if \
-		(!map[(int)(plaY + posY + .3) * mapWidth + (int)(plaX + posX + .3)] &&
-		!map[(int)(plaY + posY - .3) * mapWidth + (int)(plaX + posX + .3)] &&
-		!map[(int)(plaY + posY + .3) * mapWidth + (int)(plaX + posX - .3)] &&
-		!map[(int)(plaY + posY - .3) * mapWidth + (int)(plaX + posX - .3)])
+		(!map[(int)(plaY + posY + .3) * MAPWIDTH + (int)(plaX + posX + .3)] &&
+		!map[(int)(plaY + posY - .3) * MAPWIDTH + (int)(plaX + posX + .3)] &&
+		!map[(int)(plaY + posY + .3) * MAPWIDTH + (int)(plaX + posX - .3)] &&
+		!map[(int)(plaY + posY - .3) * MAPWIDTH + (int)(plaX + posX - .3)])
 		{
 			plaX += posX;
 			plaY += posY;
 		}
 
-		if (!map[(int)(plaY + posY + .3) * mapWidth + (int)(plaX + .3)] &&
-			!map[(int)(plaY + posY - .3) * mapWidth + (int)(plaX + .3)] &&
-			!map[(int)(plaY + posY + .3) * mapWidth + (int)(plaX - .3)] &&
-			!map[(int)(plaY + posY - .3) * mapWidth + (int)(plaX - .3)])
+		if (!map[(int)(plaY + posY + .3) * MAPWIDTH + (int)(plaX + .3)] &&
+			!map[(int)(plaY + posY - .3) * MAPWIDTH + (int)(plaX + .3)] &&
+			!map[(int)(plaY + posY + .3) * MAPWIDTH + (int)(plaX - .3)] &&
+			!map[(int)(plaY + posY - .3) * MAPWIDTH + (int)(plaX - .3)])
 			{
 				plaY += posY;
 		}
 
-		if (!map[(int)(plaY + .3) * mapWidth + (int)(plaX + posX + .3)] &&
-			!map[(int)(plaY - .3) * mapWidth + (int)(plaX + posX + .3)] &&
-			!map[(int)(plaY + .3) * mapWidth + (int)(plaX + posX - .3)] &&
-			!map[(int)(plaY - .3) * mapWidth + (int)(plaX + posX - .3)])
+		if (!map[(int)(plaY + .3) * MAPWIDTH + (int)(plaX + posX + .3)] &&
+			!map[(int)(plaY - .3) * MAPWIDTH + (int)(plaX + posX + .3)] &&
+			!map[(int)(plaY + .3) * MAPWIDTH + (int)(plaX + posX - .3)] &&
+			!map[(int)(plaY - .3) * MAPWIDTH + (int)(plaX + posX - .3)])
 			{
 				plaX += posX;
 		}
