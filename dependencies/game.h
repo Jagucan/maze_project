@@ -1,5 +1,5 @@
-#ifndef _SDL_GAME_MAZE_H_
-#define _SDL_GAME_MAZE_H_
+#ifndef _GAME_H_
+#define _GAME_H_
 
 #include "main.h"
 
@@ -82,7 +82,7 @@ public:
 		mapWallW = sMapWallW;
 		mapWallH = sMapWallH;
 	}
-
+	
 	void setMapObjs(const char* sMapObjs, int sMapObjsW, int sMapObjsH, int sColorR, int sColorG, int sColorB) {
 		mapObjs = sMapObjs;
 		mapObjsW = sMapObjsW;
@@ -91,7 +91,7 @@ public:
 		colorG = sColorG;
 		colorB = sColorB;
 	}
-
+	
 	void setCam(float scamX, float scamY, float sCamA, float sCamB) {
 		camX = scamX;
 		camY = scamY;
@@ -100,7 +100,7 @@ public:
 		while (camA > 3.14) camA -= 6.28;
 		while (camA < -3.14) camA += 6.28;
 	}
-
+	
 	void init(SDL_Window *window) {
 		const SDL_PixelFormat* sFrmt = SDL_GetWindowSurface(window)->format;
 		Uint32 sFrmtG = SDL_GetWindowPixelFormat(window);
@@ -158,7 +158,7 @@ public:
 
 		colorConv = RGB(colorR, colorG, colorB);
 	}
-
+	
 	void renderWalls() {
 		col = 0;
 		for (angle = camA - camB / 2; angle < camA + camB / 2; angle += steps) {
@@ -276,7 +276,7 @@ public:
 				break;
 		}
 	}
-
+	
 	void renderObjs() {
 		angle = camA;
 		for (int i = 0; i < objMapSize; i++) {
@@ -309,7 +309,7 @@ public:
 				renderData[i + width][0] = -1;
 		}
 	}
-
+	
 	void show() {
 
 		renderWalls();
@@ -435,4 +435,4 @@ public:
 	}
 };
 
-#endif //_SDL_GAME_MAZE_H_
+#endif /* _GAME_H_ */

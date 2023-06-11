@@ -9,4 +9,4 @@
 
 const int width = 480, height = 320;
 
-#endif
+#endif /* _MAIN_H_ */

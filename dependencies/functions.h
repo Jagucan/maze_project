@@ -1,7 +1,9 @@
 #ifndef _FUNCTIONS_H_
 #define _FUNCTIONS_H_
 
+
 #include "game.h"
+
 
 /* generate an error output if the condition is not met and end the program. */
 #define ASSERT(cond, ...)			\
@@ -9,7 +11,7 @@ if (!cond)							\
 {									\
 	fprintf(stderr, __VA_ARGS__);	\
 	exit(1);					    \
-}
+};
 
 /* creates 32-bit color values from the individual color components. */
 inline Uint32 RGB(uint32_t red, uint32_t green, uint32_t blue)
