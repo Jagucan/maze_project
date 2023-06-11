@@ -35,7 +35,7 @@ int main(int argc, char *args[])
 	maze.setTileObjs("pics/objs.bmp", 64, 64, 160, 0, 128);
 	maze.setMap(map, mapWidth, mapHeight);
 	maze.setMapObjs(map_objs, 3);
-	maze.setSky("pics/sky.bmp");
+	maze.setSky("pics/sky_pingoo.bmp");
 	maze.setFlats(map_floor, map_ciel);
 	maze.setLights(map_light);
 	maze.setCam(plaX, plaY, dirX, dirY);
