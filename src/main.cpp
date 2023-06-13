@@ -1,4 +1,4 @@
-#include "../dependencies/game.h"
+#include "../dependencies/game.hpp"
 
 
  /**

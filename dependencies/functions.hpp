@@ -1,8 +1,8 @@
-#ifndef _FUNCTIONS_H_
-#define _FUNCTIONS_H_
+#ifndef _FUNCTIONS_HPP_
+#define _FUNCTIONS_HPP_
 
 
-#include "game.h"
+#include "game.hpp"
 
 
 /* generate an error output if the condition is not met and end the program. */
@@ -62,4 +62,4 @@ Uint32 getpixel(SDL_Surface *surface, int x, int y)
 
 };
 
-#endif /* _FUNCTIONS_H_ */
+#endif /* _FUNCTIONS_HPP_ */

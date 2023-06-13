@@ -1,11 +1,11 @@
-#ifndef _MAIN_H_
-#define _MAIN_H_
+#ifndef _MAIN_HPP_
+#define _MAIN_HPP_
 
 
 #include <SDL2/SDL.h>
 #include <iostream>
-#include "maps.h"
-#include "functions.h"
+#include "maps.hpp"
+#include "functions.hpp"
 
 const int width = 480, height = 320;
 

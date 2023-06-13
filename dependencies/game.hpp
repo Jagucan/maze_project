@@ -1,7 +1,7 @@
-#ifndef _GAME_H_
-#define _GAME_H_
+#ifndef _GAME_HPP_
+#define _GAME_HPP_
 
-#include "main.h"
+#include "main.hpp"
 
 
 class Game {
@@ -436,4 +436,4 @@ public:
 	}
 };
 
-#endif /* _GAME_H_ */
+#endif /* _GAME_HPP_ */
