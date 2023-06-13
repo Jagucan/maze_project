@@ -35,7 +35,7 @@ int main(int argc, char *args[])
 	maze.setMapObjs("pics/objs.bmp", 64, 64, 160, 0, 128);
 	maze.setMap(map, MAPWIDTH, MAPHEIGHT);
 	maze.setMapObjs(map_objs, 3);
-	maze.setCiel("pics/sky_pingoo.bmp");
+	maze.setCiel("pics/sky3.bmp");
 	maze.setFlats(map_floor, map_ciel);
 	maze.setLights(map_light);
 	maze.setCam(plaX, plaY, dirX, dirY);
@@ -60,6 +60,7 @@ int main(int argc, char *args[])
 
 		/* frametime is the time this frame has taken, in seconds */
 		frameTime = 1000 / frameTime;
+
 		posX = 0;
 		posY = 0;
 		const Uint8* keys = SDL_GetKeyboardState(NULL);
