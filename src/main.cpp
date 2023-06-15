@@ -38,7 +38,7 @@ int main(int argc, char *args[])
 	maze.setMapWalls("pics/walls.bmp", 32, 32);
 	maze.setMapObjs("pics/objs.bmp", 64, 64, 160, 0, 128);
 	maze.setMap(map, MAPWIDTH, MAPHEIGHT);
-	maze.setMapObjs(map_objs, 3);
+	maze.setMapObjs(map_objs, 30);
 	maze.setCiel("pics/sky3.bmp");
 	maze.setFlats(map_floor, map_ciel);
 	maze.setLights(map_light);

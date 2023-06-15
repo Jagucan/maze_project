@@ -145,10 +145,11 @@ float map_light[MAPWIDTH * MAPHEIGHT] = {
 };
 
 /* objects on the map */
-float map_objs[3][3] = {
+float map_objs[MAPWIDTH][MAPHEIGHT] = {
 	{3, 1.5, 1.5},
 	{3, 8, 1.5},
-	{4, 8, 4}
+	{4, 6.25, 4},
+    {0, 8.15, 4},
 };
 
 /* ---------------------------------------------------------------- */

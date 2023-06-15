@@ -77,7 +77,7 @@ public:
 	 *                  Each row represents an object and contains three elements: x, y, z coordinates.
 	 * @param size: The number of objects in the object map.
 	*/
-	void setMapObjs(float sObjMap[][3], int size) {
+	void setMapObjs(float sObjMap[MAPWIDTH][MAPHEIGHT], int size) {
 		renderDataSize += size;
 		objMapSize = size;
 		objMap = new float* [size];
