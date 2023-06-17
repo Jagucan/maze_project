@@ -14,8 +14,11 @@ LINKER_FLAGS = -lSDL2 -lSDL2_image -Wall -Werror -Wextra -std=gnu89 -pedantic
 #OBJ_NAME - specifies the name of our exectuable
 OBJ_NAME = Maze_SDL
 
+# Install the dependencies, compile and run the exectuable
+all : install compile run
+
 # Compile and run the exectuable
-all : compile run
+execute : compile run
 
 # Compile the executable
 compile : $(OBJS)
@@ -24,4 +27,7 @@ compile : $(OBJS)
 # Run the executable
 run : 
 	./$(OBJ_NAME)
-# g++ -o raycaster main.cpp -lSDL2
+
+# Install the dependencies
+install : 
+	./setup.sh
