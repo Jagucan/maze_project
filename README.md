@@ -1,6 +1,10 @@
 # Capstone Project ( Maze Game ).
 
-![Maze Game](https://drive.google.com/file/d/1MvXsZKol_Lc-pVFmzOvomZyW3jVj7bLW/view?usp=drive_link)
+<p align = "center">
+  <a href="https://imgur.com/9RR4sDk">
+    <img src="https://i.imgur.com/9RR4sDk.png" title="source: imgur.com" />
+  </a>
+</p>
 
 ## Context.
 
