@@ -1,6 +1,6 @@
 # Capstone Project ( Maze Game ).
 
-![Maze Game](https://www.canva.com/design/DAFmmFjJx_s/qabMwo5sPcETFgoxvCdHpQ/view?utm_content=DAFmmFjJx_s&utm_campaign=celebratory_first_publish&utm_medium=link&utm_source=celebratory_first_publish)
+![Maze Game](https://drive.google.com/file/d/1MvXsZKol_Lc-pVFmzOvomZyW3jVj7bLW/view?usp=drive_link)
 
 ## Context.
 
