@@ -2,7 +2,7 @@
 
 <p align = "center">
   <a href="https://imgur.com/9RR4sDk">
-    <img src="https://i.imgur.com/9RR4sDk.png" title="source: imgur.com" />
+    <img src="https://i.imgur.com/9RR4sDk.png" title="source: imgur.com" width = "600px" height = "400px"/>
   </a>
 </p>
 
