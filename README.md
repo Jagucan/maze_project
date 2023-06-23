@@ -2,7 +2,7 @@
 
 <p align = "center">
   <a href="https://imgur.com/9RR4sDk">
-    <img src="https://i.imgur.com/9RR4sDk.png" title="source: imgur.com" width = "600px" height = "400px"/>
+    <img src="https://i.imgur.com/9RR4sDk.png" title="source: imgur.com" width = "600px" height = "350px"/>
   </a>
 </p>
 
@@ -51,6 +51,14 @@ The main goal of this project is to explore the capabilities of _SDL2_ and _rayc
 - To walk backwards hold down the **S key**.
 - To rotate the camera to the right hold the **RIGHT key** or move the mouse to the right.
 - To rotate the camera to the left hold down the **LEFT key** or move the mouse to the left.
+
+## Map View
+
+<p align = "center">
+  <a href="https://imgur.com/9RR4sDk">
+    <img src="https://i.imgur.com/9RR4sDk.png" title="source: imgur.com" width = "600px" height = "400px"/>
+  </a>
+</p>
 
 ## References.
 
