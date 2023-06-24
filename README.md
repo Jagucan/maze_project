@@ -56,20 +56,20 @@ The main goal of this project is to explore the capabilities of _SDL2_ and _rayc
 
 <p align="center">
   <a href="https://imgur.com/5aCfp1C">
-    <img src="https://i.imgur.com/5aCfp1C.png" title="source: imgur.com" width = "600px" height = "350px"/>
+    <img src="https://i.imgur.com/5aCfp1C.png" title="source: imgur.com" width = "600px" height = "600px"/>
   </a>
 </p>
 
 ### Map Screenshot
 
 <p align="center">
-  <a href="https://imgur.com/AHZcRsl"><img src="https://i.imgur.com/AHZcRsl.png" title="source: imgur.com" width = "300px" height = "150px"/></a>
-  <a href="https://imgur.com/AVr6Ic3"><img src="https://i.imgur.com/AVr6Ic3.png" title="source: imgur.com" width = "300px" height = "150px"/></a>
+  <a href="https://imgur.com/AHZcRsl"><img src="https://i.imgur.com/AHZcRsl.png" title="source: imgur.com" width = "300px" height = "200px"/></a>
+  <a href="https://imgur.com/AVr6Ic3"><img src="https://i.imgur.com/AVr6Ic3.png" title="source: imgur.com" width = "300px" height = "200px"/></a>
 </p>
 
 <p align="center">
-  <a href="https://imgur.com/ECPWGRv"><img src="https://i.imgur.com/ECPWGRv.png" title="source: imgur.com" width = "300px" height = "150px"/></a>
-  <a href="https://imgur.com/ZAlPvwe"><img src="https://i.imgur.com/ZAlPvwe.png" title="source: imgur.com" width = "300px" height = "150px"/></a>
+  <a href="https://imgur.com/ECPWGRv"><img src="https://i.imgur.com/ECPWGRv.png" title="source: imgur.com" width = "300px" height = "200px"/></a>
+  <a href="https://imgur.com/ZAlPvwe"><img src="https://i.imgur.com/ZAlPvwe.png" title="source: imgur.com" width = "300px" height = "200px"/></a>
 </p>
 
 ## References.
