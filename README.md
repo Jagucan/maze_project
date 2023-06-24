@@ -70,14 +70,9 @@ The main goal of this project is to explore the capabilities of _SDL2_ and _rayc
 
 ### Examples and Resources.
 
-### Examples
-
 [The power ups - Learning](https://www.youtube.com/watch?v=_45s_gNicwo&list=PLAGy_slICtV1AD8nV3nEe7P8j82XdxH-7&pp=iAQB)  
 [SDL2 C/C++ Tutorial](https://www.youtube.com/watch?v=ZQGA4ke_SQA)  
-[Introduction to SDL2](https://www.youtube.com/watch?v=QM4WW8hcsPU)
-
-### Resources
-
+[Introduction to SDL2](https://www.youtube.com/watch?v=QM4WW8hcsPU)  
 [DieHard Wolfers](https://dhw.wolfenstein3d.com/viewforum.php?f=24)  
 [Sky Texture](https://opengameart.org/content/cloudy-sky)  
 [Textures](https://opengameart.org/content/big-pack-of-hand-painted-tiling-textures)  
