@@ -92,7 +92,7 @@ The main goal of this project is to explore the capabilities of _SDL2_ and _rayc
 
 ## Authors
 
-Jacinto Gutierrez - [Github](https://github.com/Jagucan) / [LinkedIn](www.linkedin.com/in/jacinto-gutierrez-888808281)
+Jacinto Gutierrez - [Github](https://github.com/Jagucan) / [LinkedIn](https://www.linkedin.com/in/jacinto-gutierrez-888808281)
 
 ## Licensing
 
