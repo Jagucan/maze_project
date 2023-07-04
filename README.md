@@ -90,6 +90,10 @@ The main goal of this project is to explore the capabilities of _SDL2_ and _rayc
 [Textures](https://opengameart.org/content/big-pack-of-hand-painted-tiling-textures)  
 [More Textures](https://lodev.org/cgtutor/raycasting2.html)
 
+## Authors
+
+Jacinto Gutierrez - [Github](https://github.com/Jagucan) / [LinkedIn](www.linkedin.com/in/jacinto-gutierrez-888808281)
+
 ## Licensing
 
 Free Use.
